@@ -1,0 +1,19 @@
+{
+  "name": "verifiai-backend",
+  "version": "1.0.0",
+  "description": "VerifiAI Backend API Server",
+  "main": "test-backend.js",
+  "scripts": {
+    "start": "node test-backend.js",
+    "dev": "node test-backend.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.2.2"
+  },
+  "keywords": ["ai", "fact-checking", "api"],
+  "author": "",
+  "license": "ISC"
+}

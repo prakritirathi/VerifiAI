@@ -1,0 +1,27 @@
+{
+  "name": "verifiai-extension-backend",
+  "version": "1.0.0",
+  "description": "Gemini AI-powered backend for VerifiAI Chrome Extension",
+  "main": "gemini-backend.js",
+  "scripts": {
+    "start": "node gemini-backend.js",
+    "dev": "nodemon gemini-backend.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "keywords": [
+    "fact-checking",
+    "ai",
+    "gemini",
+    "misinformation",
+    "credibility"
+  ],
+  "author": "VerifiAI Team",
+  "license": "MIT"
+}

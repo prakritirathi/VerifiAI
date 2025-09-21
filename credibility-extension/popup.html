@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifiAI Scanner</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VerifiAI Scanner</h1>
+            <div class="status-indicator" id="statusIndicator"></div>
+        </div>
+        
+        <div class="content">
+            <div class="toggle-section">
+                <label class="toggle-label">
+                    <span class="toggle-text">Scan for Misinformation</span>
+                    <div class="toggle-container">
+                        <input type="checkbox" id="toggleSwitch" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="status-section">
+                <div id="statusMessage" class="status-message">
+                    Click toggle to activate scanning
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <p class="info-text">
+                    This tool analyzes web content for credibility and highlights potentially misleading information.
+                </p>
+            </div>
+            
+            <div class="website-section">
+                <button id="goToWebsite" class="website-button">
+                    <span class="website-text">Go to VerifiAI Website</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

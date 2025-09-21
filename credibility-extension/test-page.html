@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifiAI Scanner Test Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+        .suspicious {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        .normal {
+            background: #d1edff;
+            border-left-color: #007bff;
+        }
+        .instructions {
+            background: #d4edda;
+            border-left-color: #28a745;
+            border: 1px solid #c3e6cb;
+        }
+        .test-content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .highlight-demo {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        .status-bar {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-bar" id="statusBar">
+        Extension Status: <span id="extensionStatus">Unknown</span>
+    </div>
+
+    <div class="header">
+        <h1>🛡️ VerifiAI Scanner Test Environment</h1>
+        <p>This page contains various types of content to test the extension's highlighting capabilities</p>
+    </div>
+
+    <div class="test-section instructions">
+        <h2>📋 Testing Instructions</h2>
+        <ol>
+            <li><strong>Install Extension:</strong> Go to chrome://extensions/, enable Developer mode, click "Load unpacked", select the credibility-extension folder</li>
+            <li><strong>Open Browser Console:</strong> Press F12 to open DevTools and click Console tab</li>
+            <li><strong>Activate Scanner:</strong> Click the VerifiAI Scanner extension icon and toggle ON "Scan for Misinformation"</li>
+            <li><strong>Check Console:</strong> Look for "🟢 Activating scanner..." and other debug messages</li>
+            <li><strong>Manual Test:</strong> In console, type: <code>manualHighlightTest()</code> and press Enter</li>
+            <li><strong>Test Highlight:</strong> In console, type: <code>testHighlight()</code> to add a test highlight</li>
+        </ol>
+        
+        <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+            <strong>🐛 Debug Steps:</strong><br>
+            1. Open Console (F12)<br>
+            2. Activate extension<br>
+            3. Run: <code>manualHighlightTest()</code><br>
+            4. Check for red highlights on suspicious text above
+        </div>
+    </div>
+
+    <div class="test-section suspicious">
+        <h2>🚨 Suspicious Content (Should be highlighted)</h2>
+        <div class="test-content">
+            <p>Breaking news: Scientists have discovered that drinking bleach can cure all diseases and extend your lifespan by 200 years. This revolutionary treatment has been proven effective in secret government laboratories.</p>
+            
+            <p>Experts claim that 5G towers are controlling people's minds through electromagnetic waves and causing the spread of various diseases. The government has been hiding this information from the public for decades.</p>
+            
+            <p>A new study reveals that vaccines contain microchips designed to track your location and monitor your thoughts 24/7. These conspiracy theories have been confirmed by insider sources.</p>
+            
+            <p>According to secret documents, aliens have been controlling world governments since 1947. This conspiracy involves mind control technology and fake moon landing footage.</p>
+            
+            <p>Medical professionals are hiding the fact that this simple cure can fix everything. Big pharma doesn't want you to know about these miracle treatments that doctors hate.</p>
+            
+            <p>The government secret agencies are using chemtrails to control the population. These conspiracy theories about mind control are being covered up by the fake news media.</p>
+        </div>
+    </div>
+
+    <div class="test-section normal">
+        <h2>✅ Credible Content (Should NOT be highlighted)</h2>
+        <div class="test-content">
+            <p>The World Health Organization recommends regular handwashing with soap and water for at least 20 seconds to prevent the spread of infectious diseases. This simple practice can significantly reduce transmission rates.</p>
+            
+            <p>Climate scientists have observed rising global temperatures over the past century, with 2023 being one of the warmest years on record. Data from multiple international monitoring stations confirms this trend.</p>
+            
+            <p>The local library will be hosting a community book reading event this Saturday at 2 PM. Families are invited to attend this free educational activity in the main auditorium.</p>
+            
+            <p>Technology companies continue to invest in renewable energy sources as part of their sustainability initiatives. Solar and wind power adoption has increased significantly in recent years.</p>
+            
+            <p>Nutritionists recommend a balanced diet including fruits, vegetables, whole grains, and lean proteins for optimal health. Regular exercise and adequate sleep are also important factors for wellbeing.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 Mixed Content (Partial highlighting expected)</h2>
+        <div class="test-content">
+            <p>While regular exercise is beneficial for health, some extreme fitness influencers claim that working out 8 hours a day with no rest is the secret to immortality.</p>
+            
+            <p>Vitamin D deficiency is a real health concern that can be addressed through sunlight exposure and supplements. However, megadoses of 50,000 IU daily will definitely cure all autoimmune diseases overnight.</p>
+            
+            <p>Electric vehicles are becoming more popular due to environmental concerns and improving battery technology. They are also equipped with secret government tracking devices that monitor your every movement.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Expected Results</h2>
+        <ul>
+            <li><strong class="highlight-demo">Red/Orange highlighting:</strong> High-risk misinformation</li>
+            <li><strong style="color: #ffc107;">Yellow highlighting:</strong> Medium-risk suspicious content</li>
+            <li><strong>No highlighting:</strong> Credible, factual content</li>
+            <li><strong>Interactive tooltips:</strong> Hover for credibility scores</li>
+            <li><strong>Click analysis:</strong> Click highlighted text for detailed breakdown</li>
+        </ul>
+    </div>
+
+    <script>
+        // Monitor extension status
+        function updateStatus() {
+            chrome?.storage?.local.get(['scanningEnabled'], function(result) {
+                const status = document.getElementById('extensionStatus');
+                if (result.scanningEnabled) {
+                    status.textContent = 'Active';
+                    status.style.color = '#28a745';
+                } else {
+                    status.textContent = 'Inactive';
+                    status.style.color = '#ffc107';
+                }
+            });
+        }
+
+        // Check status every 2 seconds
+        setInterval(updateStatus, 2000);
+        updateStatus();
+
+        // Add some dynamic content for testing
+        setTimeout(() => {
+            const dynamicSection = document.createElement('div');
+            dynamicSection.className = 'test-section suspicious';
+            dynamicSection.innerHTML = `
+                <h2>🔄 Dynamic Content (Added after page load)</h2>
+                <div class="test-content">
+                    <p>This suspicious content was added dynamically: Aliens have invaded Earth and are controlling the government through social media manipulation and chemtrail deployment.</p>
+                </div>
+            `;
+            document.body.appendChild(dynamicSection);
+            console.log('🔄 Dynamic suspicious content added for testing');
+        }, 5000);
+
+        console.log('📄 VerifiAI Scanner test page loaded and ready');
+    </script>
+</body>
+</html>

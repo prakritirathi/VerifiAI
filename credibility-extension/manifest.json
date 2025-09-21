@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "VerifiAI Credibility Scanner",
+  "version": "1.0.0",
+  "description": "Highlight and analyze suspicious content on web pages with AI-powered credibility detection.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "VerifiAI Credibility Scanner"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
